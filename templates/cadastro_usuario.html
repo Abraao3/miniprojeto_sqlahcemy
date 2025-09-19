@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background: #fff;
+            padding: 40px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 108%;
+            padding: 10px;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        form button:hover {
+            background-color: rgb(19, 19, 110)
+        }
+    </style>
 </head>
 <body>
-    
-    <form action=""></form>
+    <form action="", method="POST">
+        <h1>Adcione seu nome, seu email e sua senha</h1>
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="senha" placeholder="Senha">
+        <button>Enviar</button>
+    </form>
 </body>
 </html>

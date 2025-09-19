@@ -16,6 +16,10 @@ def cadastrar():
 def logar():
     return render_template('login.html')
 
+@app.route('/produtos')
+def lista_produtos():
+    return render_template('login.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
