@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LumiBook{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('lista_produtos') }}">Produtos</a>
+                    <a href="{{ url_for('logout') }}">Sair</a>
+                {% else %}
+                    <a href="{{ url_for('logar') }}">Login</a>
+                    <a href="{{ url_for('cadastrar') }}">Cadastrar</a>
+                {% endif %}
+            </nav>
+        </header>
+
+        <main>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            <p>&copy; 2024 LumiBook - Todos os direitos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>

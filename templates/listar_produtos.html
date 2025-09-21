@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Nossos Livros</h1>
+
+<a href="{{ url_for('adicionar_produto') }}" style="display: inline-block; padding: 10px 15px; background: #28a745; color: white; text-decoration: none; margin-bottom: 20px; border-radius: 4px;">
+    + Adicionar Livro
+</a>
+
+{% if produtos %}
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>R$ {{ produto.preco }}</td>
+            <td>
+                <a href="{{ url_for('editar_produto', id=produto.id) }}" style="color: #ffc107;">Editar</a> | 
+                <a href="{{ url_for('excluir_produto', id=produto.id) }}" style="color: #dc3545;" onclick="return confirm('Tem certeza?')">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+        Nenhum livro cadastrado ainda.
+    </p>
+{% endif %}
+{% endblock %}

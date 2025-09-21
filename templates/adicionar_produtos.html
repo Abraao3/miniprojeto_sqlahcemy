@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 2rem auto;">
+    <h1>Adicionar Livro</h1>
+    
+    <form method="POST">
+        <input type="text" name="nome" placeholder="Nome do livro" required>
+        <input type="text" name="descricao" placeholder="Descrição" required>
+        <input type="number" name="preco" placeholder="Preço" step="0.01" required>
+        <button type="submit">Salvar</button>
+        <a href="{{ url_for('lista_produtos') }}" style="display: inline-block; padding: 10px 15px; background: #6c757d; color: white; text-decoration: none; border-radius: 4px;">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

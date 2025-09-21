@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 400px; margin: 2rem auto;">
+    <h1>Login</h1>
     
-</body>
-</html>
+    <form action="{{ url_for('logar') }}" method="POST">
+        <input type="email" name="email" placeholder="Seu email" required>
+        <input type="password" name="password" placeholder="Sua senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+    
+    <p style="text-align: center; margin-top: 1rem;">
+        Não tem conta? <a href="{{ url_for('cadastrar') }}">Cadastre-se aqui</a>
+    </p>
+</div>
+{% endblock %}
